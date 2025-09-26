@@ -1,6 +1,13 @@
 import requests
-import json
 from bs4 import BeautifulSoup
+import json
+
+def cleanString(s):
+    t = ""
+    for c in s:
+        if (c >= "A" and c <= "Z") or (c >= "a" and c <= "z") or (c == " "):
+            t += c
+    return t
 
 def getQuestions(response):
     global payload
@@ -14,7 +21,7 @@ def getQuestions(response):
         cache = []
         # Get name
         problem = p.find("td", class_="problem")
-        cache.append({"Name" : problem.text})
+        cache.append({"Name" : cleanString(problem.text)})
         # Get Url
         link = problem.find("a")
         cache.append({"Url" : f"https://aucpl.com/problems/{link.get('href')}"})
@@ -41,7 +48,8 @@ def main():
         curPage += 1
     
     
-    requests.post("http://localhost:3000/scraped", json=payload)
-    print(f"posted len: {len(payload)}")
+    with open("problems.json", "w") as f:
+        json.dump(payload, f, indent=2)
+
 
 main() 
