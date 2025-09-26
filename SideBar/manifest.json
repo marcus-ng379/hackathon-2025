@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Test Side Panel",
+    "version": "1.0",
+    "permissions": [
+        "sidePanel",
+        "tabs"
+    ],
+    "background": {
+        "service_worker": "main.js"
+    },
+    "action": {
+        "default_title": "Pleasework"
+    },
+    "icons": {
+        "48": "men.jpeg"
+    }
+}
