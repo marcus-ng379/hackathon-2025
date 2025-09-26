@@ -13,15 +13,18 @@ source ~/.bashrc # Reload shell
 nvm install node # Installs Node.js
 ```
 
-2. Install Express
+2. Clone and move into directory
 ```bash
-mkdir my-express-app
-cd my-express-app # Build
-npm init
+git clone https://github.com/marcus-ng379/hackathon-2025.git
+cd hackathon-2025
+```
+
+3. Install Express
+```bash
 npm install express # Install Express
 ```
 
-3. Install **socket.io**
+4. Install **socket.io**
 ```bash
 npm install express socket.io
 ```
