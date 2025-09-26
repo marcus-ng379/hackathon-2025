@@ -18,21 +18,26 @@
 
     socket.onopen = () => {
       // Join the room after connecting
-      socket.send(JSON.stringify({ type: "join", roomId }));
+      socket.send(JSON.stringify({"type": "join", "roomId" : roomId}));
     };
 
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
       const li = document.createElement("li");
-      li.textContent = (data.type === "system" ? "[System]" : "[Chat]") + " " + data.message || data.text;
+      if (data.type === "system") {
+        li.textContent = "[System]: " + data.message;
+      } else {
+        li.textContent = "[Chat]: " + data.text;
+      }
+      
       document.getElementById("chat").appendChild(li);
     };
 
     function sendMessage() {
       const input = document.getElementById("messageInput");
-      const text = input.value.trim();
-      if (text) {
-        socket.send(JSON.stringify({ type: "message", text }));
+      const textOut = input.value.trim();
+      if (textOut) {
+        socket.send(JSON.stringify({"type": "message", "text": textOut}));
         input.value = '';
       }
     }
