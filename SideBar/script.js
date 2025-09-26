@@ -1,9 +1,12 @@
+//CHECKS IF THE USER ACCIDENTAlly LEFT
 if ((localStorage.getItem("code"))) {
+    //IF SO ENTER THE ROOM.
     enterRoom();
 }
-
+//CREATE ROOM
 function createRoom() {
-    localStorage.setItem("code", "PLACEHOLDER")
+    //SETS A CODE (RANDOMLY GENERATED)
+    localStorage.setItem("code", "PLACEHOLDER");
     const homePage = document.getElementById('home');
     homePage.innerHTML = '';
 
