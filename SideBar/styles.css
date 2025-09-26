@@ -3,18 +3,19 @@ body {
 }
 
 .button {
+    align-self: center;
     border-radius: 15px;
     border-color: black;
     border: 3px;
 }
 
-#B {
+#DivisionB {
     border-radius: 10px;
     color: rgb(45, 156, 119);
     background-color: rgb(34, 91, 91);
 }
 
-#A {
+#DivisionA {
     opacity: 0.7;
     border-radius: 10px;
     color: rgb(174, 86, 86);
@@ -26,4 +27,30 @@ body {
     opacity: 0.7;
     color: goldenrod;
     background-color: orange;
+}
+
+#Hard {
+    border-radius: 10px;
+    opacity: 0.7;
+    color: rgb(110, 33, 19);
+    background-color: rgb(72, 8, 8);
+}
+
+#Easy {
+    border-radius: 10px;
+    opacity: 0.7;
+    color: rgb(116, 207, 115);
+    background-color: rgb(62, 85, 59);
+}
+
+
+h1 {
+    align-self: center;
+    background-color: rgb(28, 28, 28);
+    text-align: center;
+
+}
+
+input {
+    align-self: center;
 }

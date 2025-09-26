@@ -3,7 +3,7 @@
 //GET'S THE USER NAME FROM THE INPUT AND BUTTON
 nameBtn.addEventListener('click', () => {
     const page = document.getElementById("page");
-    localStorage.setItem("Name", document.getElementById('name').value)
+    localStorage.setItem("name", document.getElementById('name').value)
     bindRoomButtons(page);
 });
 
@@ -69,29 +69,20 @@ async function bindFilterButtons(page) {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ filters: filterDict })
                 });
-
+                var filteredQuestions = {};
                 if (!response.ok) {
                     throw new Error(`Server responded with status ${response.status}`);
                 }
 
-                const filteredQuestions = await response.json();
-
-                // Clear the page and show filtered questions
+                filteredQuestions = await response.json();
                 page.innerHTML = '';
-                Object.entries(filteredQuestions).forEach(([name, info]) => {
-                    const btn = document.createElement('button');
-                    btn.textContent = `${name} (${info.Difficulty})`;
-                    btn.onclick = () => window.open(info.Url, '_blank');
-                    page.appendChild(btn);
-                    page.appendChild(document.createElement('br'));
-                });
+
             } catch (err) {
                 console.error('Error fetching filtered questions:', err);
                 page.innerHTML = `<p style="color:red;">Failed to fetch filtered questions</p>`;
             }
-            getQuestionInfo(page, Data);
+            getQuestionInfo(page, filteredQuestions);
             getRoomIdAndRedirect();
-
         });
     }
 
@@ -103,10 +94,12 @@ async function bindFilterButtons(page) {
     }
 }
 
-function getQuestionInfo(page) {
+function getQuestionInfo(page, Data) {
     Data.forEach(problem => {
         createProblemLink(page, problem);
     })
+
+
 }
 
 function createChatBox(code) {
@@ -114,6 +107,29 @@ function createChatBox(code) {
     text.innerHTML = '';
     const link = `https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/room/${code}`;
     showWebsite(link);
+    const inputContainer = document.getElementById("messages");
+
+    const input = document.createElement("input");
+    input.type = "text";
+    input.id = "Hello";
+    input.placeholder = "Enter text";
+
+    const btn = document.createElement("button");
+    btn.id = "messageBtn";
+    btn.textContent = "Hello";
+    // append to the container  
+    inputContainer.appendChild(input);
+    inputContainer.appendChild(btn);
+
+    //SENDS TEXT
+
+
+
+    const messageBtn = document.getElementById('messageBtn');
+    const message = document.getElementById('Hello')
+    messageBtn.addEventListener('click', () => {
+        sendMessages(message.value);
+    });
 }
 function showWebsite(url) {
     // Get the messages container
@@ -149,9 +165,9 @@ function showWebsite(url) {
 
 function createProblemLink(page, problem) {
     const questionBtn = document.createElement("button");
-    questionBtn.textContent = problem.name;
-    questionBtn.id = problem.difficulty;
-    questionBtn.onclick = () => { chrome.tabs.update({ url: problem.link }); }
+    questionBtn.textContent = problem.Name;
+    questionBtn.id = problem.Difficulty;
+    questionBtn.onclick = () => { chrome.tabs.update({ url: problem.Url }); }
     page.appendChild(questionBtn);
     page.appendChild(document.createElement("br"));
 
@@ -180,6 +196,18 @@ function getRoomIdAndRedirect() {
         .catch(err => console.error('Error fetching room ID:', err));
 }
 
+
+function sendMessages(text) {
+    const name = localStorage.getItem('name');
+    fetch('https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/messages', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, text })
+    })
+        .then(res => res.json())
+        .then(data => console.log("Success :)"))
+        .catch(err => console.log("Uh oh >:(", err))
+}
 
 
 /*const username = prompt("Enter Username");

@@ -1,4 +1,4 @@
-
+/*
 //SENDS TEXT
 function sendMessages(text) {
     const name = localStorage.getItem('name');
@@ -18,3 +18,5 @@ const message = document.getElementById('Hello')
 messageBtn.addEventListener('click', () => {
     sendMessages(message.value);
 });
+
+*/
