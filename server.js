@@ -1,33 +1,77 @@
 const express = require('express');
-const { createServer } = require('node:http');
-const { join } = require('node:path');
-const { Server } = require('socket.io');
+const path = require('path');
+const http = require('http');
+const { WebSocketServer } = require('ws');
+const { v4: uuidv4 } = require('uuid');
 
-// Global variable userIDs ()
-var IDs = 0; // Current userID
+const app = express();
+const server = http.createServer(app);
+const wss = new WebSocketServer({ server });
 
-const app = express(); // Function Handler  
-const server = createServer(app);
-const io = new Server(server, { // Create listener for incoming sockets
-  connectionStateRecovery: {} // Attempt auto-recover on disconnect
-}); 
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => { // On initialised (main)
-  res.sendFile(join(__dirname, 'public/index.html')); // send public html
-});
-// Change root
-app.use(express.static(join(__dirname, 'public')));
+// Store rooms: Map<roomId, Set<client>>
+const rooms = new Map();
 
-io.on('connection', (socket) => {
-  console.log('a user connected:', socket.id);
+wss.on('connection', (ws) => {
+  let joinedRoom = null;
 
-  socket.on('chat message', (data) => {
-    console.log(`message from ${data.userId}: ${data.message}`);
-    io.emit('chat message', data); // broadcast to all clients
+  ws.on('message', (msg) => {
+    let data;
+
+    try {
+      data = JSON.parse(msg);
+    } catch (e) {
+      console.error("Invalid message:", msg);
+      return;
+    }
+
+    if (data.type === 'join') {
+      const roomId = data.roomId;
+
+      if (!rooms.has(roomId)) {
+        rooms.set(roomId, new Set());
+      }
+
+      rooms.get(roomId).add(ws);
+      joinedRoom = roomId;
+
+      ws.send(JSON.stringify({ type: 'system', message: `Joined room ${roomId}` }));
+    }
+
+    if (data.type === 'message' && joinedRoom) {
+      const roomClients = rooms.get(joinedRoom);
+
+      for (const client of roomClients) {
+        if (client.readyState === ws.OPEN) {
+          client.send(JSON.stringify({ type: 'message', text: data.text }));
+        }
+      }
+    }
+  });
+
+  ws.on('close', () => {
+    if (joinedRoom && rooms.has(joinedRoom)) {
+      rooms.get(joinedRoom).delete(ws);
+      if (rooms.get(joinedRoom).size === 0) {
+        rooms.delete(joinedRoom); // Clean up empty room
+      }
+    }
   });
 });
 
+// Endpoint to generate a new room and redirect
+app.get('/create-room', (req, res) => {
+  const newRoomId = uuidv4();
+  res.redirect(`/room/${newRoomId}`);
+});
 
-server.listen(3000, () => { // Listen on port 3000
-  console.log('server running at http://localhost:3000');
-}); 
+// Serve room.html for dynamic /room/:id routes
+app.get('/room/:id', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'room.html'));
+});
+
+const PORT = 3000;
+server.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
