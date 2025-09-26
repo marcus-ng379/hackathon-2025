@@ -1,13 +1,15 @@
 
 
+//GET'S THE USER NAME FROM THE INPUT AND BUTTON
 nameBtn.addEventListener('click', () => {
     const page = document.getElementById("page");
     localStorage.setItem("Name", document.getElementById('name').value)
     bindRoomButtons(page);
 });
 
-
+//REBINDS ROOM BUTTONS
 function bindRoomButtons(page) {
+    ///DEFINES HTML
     page.innerHTML = `
     <button id="create" class="button">Create Room</button><br>
     <input id="code" class="text" placeholder="Enter code!"><br>
@@ -19,17 +21,18 @@ function bindRoomButtons(page) {
     if (createBtn) {
         createBtn.addEventListener('click', () => {
             getFilter(page);
-
         });
     }
 
     if (enterCodeBtn) {
         enterCodeBtn.addEventListener('click', () => {
             const code = document.getElementById('code').value;
-            console.log('Room code sent:', code);
+            createChatBox(code);
+
         });
     }
 }
+//ASKS FOR FILTER DATAA
 function getFilter(page) {
     page.innerHTML = `
     <input type="text" id="Easy" class="input" placeholder="Enter number of easies"><br>
@@ -43,13 +46,13 @@ function getFilter(page) {
     //GET API KEY.
     bindFilterButtons(page);
 }
-function bindFilterButtons(page) {
+async function bindFilterButtons(page) {
     const filterBtn = document.getElementById('filterBtn');
     const exitBtn = document.getElementById('exit');
 
     // Bind the filter button
     if (filterBtn) {
-        filterBtn.addEventListener('click', () => {
+        filterBtn.addEventListener('click', async () => {
             const inputs = document.querySelectorAll('#page input');
             const filterDict = {};
 
@@ -59,7 +62,35 @@ function bindFilterButtons(page) {
                     filterDict[input.id] = Number(input.value) || 0;
                 }
             });
+            try {
+                // Send filters to the server
+                const response = await fetch('https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/filter', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ filters: filterDict })
+                });
 
+                if (!response.ok) {
+                    throw new Error(`Server responded with status ${response.status}`);
+                }
+
+                const filteredQuestions = await response.json();
+
+                // Clear the page and show filtered questions
+                page.innerHTML = '';
+                Object.entries(filteredQuestions).forEach(([name, info]) => {
+                    const btn = document.createElement('button');
+                    btn.textContent = `${name} (${info.Difficulty})`;
+                    btn.onclick = () => window.open(info.Url, '_blank');
+                    page.appendChild(btn);
+                    page.appendChild(document.createElement('br'));
+                });
+            } catch (err) {
+                console.error('Error fetching filtered questions:', err);
+                page.innerHTML = `<p style="color:red;">Failed to fetch filtered questions</p>`;
+            }
+            getQuestionInfo(page, Data);
+            getRoomIdAndRedirect();
 
         });
     }
@@ -72,20 +103,83 @@ function bindFilterButtons(page) {
     }
 }
 
-function getQuestionInfo() {
+function getQuestionInfo(page) {
+    Data.forEach(problem => {
+        createProblemLink(page, problem);
+    })
+}
 
+function createChatBox(code) {
+    const text = document.getElementById('messages');
+    text.innerHTML = '';
+    const link = `https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/room/${code}`;
+    showWebsite(link);
+}
+function showWebsite(url) {
+    // Get the messages container
+    const messages = document.getElementById('messages');
+
+    // Clear previous content
+    messages.innerHTML = '';
+
+    // Create a flex container
+    const flexContainer = document.createElement('div');
+    flexContainer.style.display = 'flex';
+    flexContainer.style.flexDirection = 'column'; // 'row' if you want horizontal
+    flexContainer.style.justifyContent = 'center'; // center items horizontally
+    flexContainer.style.alignItems = 'center';     // center items vertically
+    flexContainer.style.gap = '10px';
+    flexContainer.style.width = '100%';
+    flexContainer.style.height = '100%';
+
+    // Create an iframe to display the website
+    const iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.style.width = '90%';
+    iframe.style.height = '500px';
+    iframe.style.border = '1px solid #ccc';
+    iframe.style.borderRadius = '8px';
+
+    // Append iframe to flex container
+    flexContainer.appendChild(iframe);
+
+    // Append flex container to messages div
+    messages.appendChild(flexContainer);
 }
 
 function createProblemLink(page, problem) {
     const questionBtn = document.createElement("button");
     questionBtn.textContent = problem.name;
-    btn.id = problem.difficulty;
-    btn.addEventListener('click', () => {
-        window.location.href = problem.link;
-    });
-    page.appendChild(questionBtn + "<br>");
+    questionBtn.id = problem.difficulty;
+    questionBtn.onclick = () => { chrome.tabs.update({ url: problem.link }); }
+    page.appendChild(questionBtn);
+    page.appendChild(document.createElement("br"));
 
 }
+
+const Data = [
+    { "name": "Agar Adventure", "difficulty": "B", "link": "https://aucpl.com/problem/agaradventure" },
+    { "name": "AI Problem", "difficulty": "A", "link": "https://aucpl.com/problem/ai" },
+    { "name": "Longest Increasing Subsequence", "difficulty": "Medium", "link": "https://leetcode.com/problems/longest-increasing-subsequence/description/" }
+];
+
+
+function getRoomIdAndRedirect() {
+    fetch('https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/RoomIDGen'
+        , {
+            method: 'POST',
+            mode: "cors",
+            headers: { 'Content-Type': 'application/json' } // optional here
+        })
+        .then(res => res.json())
+        .then(data => {
+            const roomId = data.result;
+            createChatBox(roomId);
+
+        })
+        .catch(err => console.error('Error fetching room ID:', err));
+}
+
 
 
 /*const username = prompt("Enter Username");

@@ -6,6 +6,9 @@
         "sidePanel",
         "tabs"
     ],
+    "host_permissions": [
+        "https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/*"
+    ],
     "background": {
         "service_worker": "main.js"
     },
