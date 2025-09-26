@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Room Chat</title>
+</head>
+<body>
+  <h2>Room Chat</h2>
+  <p id="room-info"></p>
+  <input id="messageInput" placeholder="Type a message..." />
+  <button onclick="sendMessage()">Send</button>
+  <ul id="chat"></ul>
+
+  <script>
+    const roomId = window.location.pathname.split("/").pop();
+    document.getElementById("room-info").innerText = "Room ID: " + roomId;
+
+    const socket = new WebSocket("ws://localhost:3000");
+
+    socket.onopen = () => {
+      // Join the room after connecting
+      socket.send(JSON.stringify({ type: "join", roomId }));
+    };
+
+    socket.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      const li = document.createElement("li");
+      li.textContent = (data.type === "system" ? "[System]" : "[Chat]") + " " + data.message || data.text;
+      document.getElementById("chat").appendChild(li);
+    };
+
+    function sendMessage() {
+      const input = document.getElementById("messageInput");
+      const text = input.value.trim();
+      if (text) {
+        socket.send(JSON.stringify({ type: "message", text }));
+        input.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
