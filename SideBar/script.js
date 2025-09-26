@@ -1,31 +1,65 @@
-
-createRoomBtn.addEventListener('click', () => {
+function createRoom() {
     const homePage = document.getElementById('home');
-    alert("Create");
-    homePage.innerHTML = "";
-});
-enterRoomBtn.addEventListener('click', () => {
+    homePage.innerHTML = '';
+
+    const links = [
+        ["https://aucpl.com/problem/agaradventure", "Agar Adventure", "B"],
+        ["https://aucpl.com/problem/ai", "ai", "A"]
+    ];
+
+    links.forEach(link => {
+        const btn = document.createElement("button");
+        btn.textContent = link[1];
+        btn.classList.add(link[2]);
+        btn.onclick = () => { chrome.tabs.update({ url: link[0] }); };
+        homePage.appendChild(btn);
+        homePage.appendChild(document.createElement("br"));
+    });
+
+    const exitBtn = document.createElement("button");
+    exitBtn.textContent = "Exit";
+    homePage.appendChild(exitBtn);
+
+    exitBtn.addEventListener('click', () => {
+        homePage.innerHTML = `
+            <button id="createRoomBtn">Create Room</button>
+            <br>
+            <input type="text" id="roomCode" placeholder="Enter a code.">
+            <br>
+            <button id="enterRoomBtn">Enter Code</button>`;
+        attachInitialListeners();
+    });
+}
+
+function enterRoom() {
     const homePage = document.getElementById('home');
     alert(document.getElementById('roomCode').value);
-    homePage.innerHTML = "";
-});
-EnterCode.addEventListener('click', () => {
-    const createPage = document.getElementById('home');
-    alert("Create");
-    createPage.innerHTML = "";
-});
-/*
-/*
-/*
-const links = [["https://aucpl.com/problem/agaradventure", "Agar Adventure", "B"], ["https://aucpl.com/problem/ai", "ai", "A"]];
-const container = document.getElementById("links");
-for (let i = 0; i < links.length; i++) {
-    const url = links[i][0];
-    const btn = document.createElement("button");
-    btn.textContent = links[i][1];
-    btn.onclick = () => window.open(url, "_blank");
-    container.appendChild(btn)
+    homePage.innerHTML = '';
+    const exitBtn = document.createElement("button");
+    exitBtn.textContent = "Exit";
+    homePage.appendChild(exitBtn);
+
+    exitBtn.addEventListener('click', () => {
+        homePage.innerHTML = `
+            <button id="createRoomBtn">Create Room</button>
+            <br>
+            <input type="text" id="roomCode" placeholder="Enter a code.">
+            <br>
+            <button id="enterRoomBtn">Enter Code</button>`;
+        attachInitialListeners();
+    });
 }
+
+function attachInitialListeners() {
+    document.getElementById('createRoomBtn').addEventListener('click', createRoom);
+    document.getElementById('enterRoomBtn').addEventListener('click', enterRoom);
+}
+
+attachInitialListeners();
+/*
+/*
+/*
+
 
 
 

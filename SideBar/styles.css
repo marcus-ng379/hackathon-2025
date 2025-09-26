@@ -6,10 +6,34 @@
 }
 
 #header {
-    color: darkslategray;
+    color: rgb(194, 194, 194);
 
 }
 
 .body {
-    background-color: darkgray;
+    background-color: rgb(69, 69, 69);
+}
+
+.B {
+    color: lightblue;
+    background-color: blue;
+    opacity: 0.7;
+    border-radius: 5px;
+
+}
+
+.A {
+    border-radius: 10px;
+
+    color: orange;
+    opacity: 0.7;
+    background-color: darkgoldenrod;
+}
+
+#exit {
+    border-radius: 10px;
+
+    color: grey;
+    opacity: 0.7;
+    background-color: rgb(101, 101, 101);
 }
