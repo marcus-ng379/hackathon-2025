@@ -1,3 +1,5 @@
+const username = prompt("Enter Username");
+
 //CHECKS IF THE USER ACCIDENTAlly LEFT
 if ((localStorage.getItem("code"))) {
     //IF SO ENTER THE ROOM.
@@ -12,7 +14,7 @@ function createRoom() {
 
     const links = [
         ["https://aucpl.com/problem/agaradventure", "Agar Adventure", "B"],
-        ["https://aucpl.com/problem/ai", "ai", "A"]
+        ["https://aucpl.com/problem/ai", "ai", "A"], ['https://leetcode.com/problems/longest-increasing-subsequence/description/', "Longest Increasing Subsequence", "Medium"]
     ];
 
     links.forEach(link => {

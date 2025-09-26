@@ -30,10 +30,67 @@
     background-color: darkgoldenrod;
 }
 
+.Medium {
+    border-radius: 10px;
+
+    color: yellow;
+    opacity: 0.7;
+    background-color: yellowgreen;
+}
+
+.Easy {
+    border-radius: 10px;
+
+    color: green;
+    opacity: 0.7;
+    background-color: yellowgreen;
+}
+
+.Hard {
+    border-radius: 10px;
+
+    color: darkred;
+    opacity: 0.7;
+    background-color: rgb(154, 44, 7);
+}
+
 #exit {
     border-radius: 10px;
 
     color: grey;
     opacity: 0.7;
     background-color: rgb(101, 101, 101);
+}
+
+
+#chatMessages {
+    flex: 1;
+    /* Fill available vertical space */
+    overflow-y: auto;
+    /* Scroll when content overflows */
+    padding: 5px;
+    word-wrap: break-word;
+    /* Wrap long words */
+    white-space: pre-wrap;
+    /* Preserve line breaks and wrap text */
+}
+
+.chat {
+    position: fixed;
+    /* Fix at bottom */
+    bottom: 0;
+    right: 20px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+#chatInput {
+    display: flex;
+    border-top: 1px solid #ccc;
 }
