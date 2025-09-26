@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(36, 36, 36);
+}
+
+.button {
+    border-radius: 15px;
+    border-color: black;
+    border: 3px;
+}
+
+#B {
+    border-radius: 10px;
+    color: rgb(45, 156, 119);
+    background-color: rgb(34, 91, 91);
+}
+
+#A {
+    opacity: 0.7;
+    border-radius: 10px;
+    color: rgb(174, 86, 86);
+    background-color: rgb(98, 45, 45);
+}
+
+#Medium {
+    border-radius: 10px;
+    opacity: 0.7;
+    color: goldenrod;
+    background-color: orange;
+}

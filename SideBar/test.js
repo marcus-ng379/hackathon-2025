@@ -1,7 +1,7 @@
 const WebSocket = require('ws');
 
 // Replace with Computer B's IP and port
-const serverIP = "172.20.10.2";
+const serverIP = "172.17.208.1";
 const serverPort = 8080;
 
 const socket = new WebSocket(`ws://${serverIP}:${serverPort}/`);
