@@ -1,4 +1,9 @@
+if ((localStorage.getItem("code"))) {
+    enterRoom();
+}
+
 function createRoom() {
+    localStorage.setItem("code", "PLACEHOLDER")
     const homePage = document.getElementById('home');
     homePage.innerHTML = '';
 
@@ -22,16 +27,18 @@ function createRoom() {
 
     exitBtn.addEventListener('click', () => {
         homePage.innerHTML = `
-            <button id="createRoomBtn">Create Room</button>
-            <br>
-            <input type="text" id="roomCode" placeholder="Enter a code.">
-            <br>
-            <button id="enterRoomBtn">Enter Code</button>`;
+                <button id="createRoomBtn">Create Room</button>
+                <br>
+                <input type="text" id="roomCode" placeholder="Enter a code.">
+                <br>
+                <button id="enterRoomBtn">Enter Code</button>`;
         attachInitialListeners();
+        localStorage.removeItem("code")
     });
 }
 
 function enterRoom() {
+    localStorage.setItem("code", document.getElementById('roomCode').value);
     const homePage = document.getElementById('home');
     alert(document.getElementById('roomCode').value);
     homePage.innerHTML = '';
@@ -41,20 +48,19 @@ function enterRoom() {
 
     exitBtn.addEventListener('click', () => {
         homePage.innerHTML = `
-            <button id="createRoomBtn">Create Room</button>
-            <br>
-            <input type="text" id="roomCode" placeholder="Enter a code.">
-            <br>
-            <button id="enterRoomBtn">Enter Code</button>`;
+                <button id="createRoomBtn">Create Room</button>
+                <br>
+                <input type="text" id="roomCode" placeholder="Enter a code.">
+                <br>
+                <button id="enterRoomBtn">Enter Code</button>`;
+        localStorage.removeItem("code");
         attachInitialListeners();
     });
 }
-
 function attachInitialListeners() {
     document.getElementById('createRoomBtn').addEventListener('click', createRoom);
     document.getElementById('enterRoomBtn').addEventListener('click', enterRoom);
 }
-
 attachInitialListeners();
 /*
 /*
