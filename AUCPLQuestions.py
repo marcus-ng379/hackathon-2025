@@ -1,55 +1,82 @@
 import requests
 from bs4 import BeautifulSoup
-import json
 
-def cleanString(s):
-    t = ""
-    for c in s:
-        if (c >= "A" and c <= "Z") or (c >= "a" and c <= "z") or (c == " "):
-            t += c
-    return t
 
-def getQuestions(response):
-    global payload
-    soup = BeautifulSoup(response.text, 'html.parser')
+def clean_string(s):
+    """Remove unwanted characters from text"""
+    return "".join([c for c in s if c.isalpha() or c == " "])
+
+
+def get_questions(response, payload):
+    """Extract questions from a page and update payload"""
+    soup = BeautifulSoup(response.text, "html.parser")
     main_table = soup.find("div", class_="problems h-scrollable-table")
 
-    table_body = main_table.find("tbody")
-    allProblems = table_body.find_all("tr")
+    if not main_table:
+        return False  # No table found, stop scraping
 
-    for p in allProblems:
-        cache = []
+    table_body = main_table.find("tbody")
+    if not table_body:
+        return False
+
+    all_problems = table_body.find_all("tr")
+
+    for p in all_problems:
         # Get name
         problem = p.find("td", class_="problem")
-        cache.append({"Name" : cleanString(problem.text)})
-        # Get Url
+        name = clean_string(problem.text)
+
+        # Get URL
         link = problem.find("a")
-        cache.append({"Url" : f"https://aucpl.com/problems/{link.get('href')}"})
-        # Get origin
-        cache.append({"Origin" : "AUCPL"})
-        # Get difficulty
+        url = f"https://aucpl.com/problems/{link.get('href')}"
+
+        # Origin
+        origin = "AUCPL"
+
+        # Difficulty
         d = p.find("td", class_="category")
-        cache.append({"Difficulty" : d.text})
-        payload.append(cache)
-        
+        difficulty = d.text.strip()
+
+        # Add to payload
+        payload["byName"][name] = {
+            "Url": url,
+            "Origin": origin,
+            "Difficulty": difficulty,
+        }
+        payload["byDifficulty"].setdefault(difficulty, []).append(name)
+        payload["byOrigin"].setdefault(origin, []).append(name)
+
+    return True
+
 
 def main():
-    global payload
-    payload = []
+    # Initialize payload
+    payload = {
+        "byName": {},
+        "byDifficulty": {},
+        "byOrigin": {},
+    }
 
-    curPage = 1
-    response_code = 200
-    while (response_code == 200):
-        response = requests.get(f"https://aucpl.com/problems/?page={curPage}")
-        response_code = response.status_code
-        if (response_code == 200):
-            getQuestions(response)
-        print(f"On page {curPage} with stat code: {response_code}")
-        curPage += 1
-    
-    
-    with open("problems.json", "w") as f:
-        json.dump(payload, f, indent=2)
+    cur_page = 1
+    while True:
+        response = requests.get(f"https://aucpl.com/problems/?page={cur_page}")
+        if response.status_code != 200:
+            break
+
+        print(f"Scraping page {cur_page}...")
+        success = get_questions(response, payload)
+        if not success:
+            break
+
+        cur_page += 1
+
+    # Send results to local server
+    try:
+        r = requests.post("http://localhost:3000/scraped", json=payload)
+        print("POST status:", r.status_code)
+    except Exception as e:
+        print("Failed to send data:", e)
 
 
-main() 
+if __name__ == "__main__":
+    main()
