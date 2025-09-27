@@ -1,0 +1,940 @@
+{
+  "byName": {
+    "Agar Adventure": {
+      "Url": "https://aucpl.com/problem/agaradventure",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Artificial Intelligence": {
+      "Url": "https://aucpl.com/problem/ai",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Algorithm Performance I": {
+      "Url": "https://aucpl.com/problem/algoperformancei",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Algorithm Performance II": {
+      "Url": "https://aucpl.com/problem/algoperformanceii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Anagram Analyser": {
+      "Url": "https://aucpl.com/problem/anagramanalyser",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Animal Farm": {
+      "Url": "https://aucpl.com/problem/animalfarm",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Assault and Battery I": {
+      "Url": "https://aucpl.com/problem/assaultandbatteryi",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Assault and Battery II": {
+      "Url": "https://aucpl.com/problem/assaultandbatteryii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "AUCPL Intro": {
+      "Url": "https://aucpl.com/problem/aucplintro",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Bake a Cake": {
+      "Url": "https://aucpl.com/problem/bakeacake",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Baked Goods": {
+      "Url": "https://aucpl.com/problem/bakedgoods",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Better Call Paul": {
+      "Url": "https://aucpl.com/problem/bettercallpaul",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Binary Bros": {
+      "Url": "https://aucpl.com/problem/binarybros",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Blastoff": {
+      "Url": "https://aucpl.com/problem/blastoff",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Bullshit Branding": {
+      "Url": "https://aucpl.com/problem/bullshitbranding",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Calcunanigans": {
+      "Url": "https://aucpl.com/problem/calcunanigans",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Cappuccino Assassino": {
+      "Url": "https://aucpl.com/problem/cappuccinoassassino",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Chexapawn": {
+      "Url": "https://aucpl.com/problem/chexapawn",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Chicken Run": {
+      "Url": "https://aucpl.com/problem/chickenrun",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Chips Out": {
+      "Url": "https://aucpl.com/problem/chipsout",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Counting Stars": {
+      "Url": "https://aucpl.com/problem/countingstars",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Cow Conundrum": {
+      "Url": "https://aucpl.com/problem/cowconundrum",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Crop Network": {
+      "Url": "https://aucpl.com/problem/cropnetwork",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Currency Exchange": {
+      "Url": "https://aucpl.com/problem/currencyexchange",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Defense of the Eternal Runes": {
+      "Url": "https://aucpl.com/problem/doter",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Dreaming of Shapes": {
+      "Url": "https://aucpl.com/problem/dreamingofshapes",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Dynamic Drinking": {
+      "Url": "https://aucpl.com/problem/dynamicdrinking",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Dystopian I": {
+      "Url": "https://aucpl.com/problem/dystopiani",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Dystopian II": {
+      "Url": "https://aucpl.com/problem/dystopianii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Dystopian III": {
+      "Url": "https://aucpl.com/problem/dystopianiii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Easy Peasy Arithmetic": {
+      "Url": "https://aucpl.com/problem/easypeasyarithmetic",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "End of the Line": {
+      "Url": "https://aucpl.com/problem/endoftheline",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Faro Shuffle": {
+      "Url": "https://aucpl.com/problem/faroshuffle",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Feeding Frenzy": {
+      "Url": "https://aucpl.com/problem/feedingfrenzy",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Footy Fanatics": {
+      "Url": "https://aucpl.com/problem/footyfanatics",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Formidable": {
+      "Url": "https://aucpl.com/problem/formidable",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Friends with the Monster": {
+      "Url": "https://aucpl.com/problem/friendswiththemonste",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Fringe Benefits I": {
+      "Url": "https://aucpl.com/problem/fringebenefitsi",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Fringe Benefits II": {
+      "Url": "https://aucpl.com/problem/fringebenefitsii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Garbage Collection": {
+      "Url": "https://aucpl.com/problem/garbagecollection",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Grid City": {
+      "Url": "https://aucpl.com/problem/gridcity",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Hello Adelaide": {
+      "Url": "https://aucpl.com/problem/helloadelaide",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Hexapawn": {
+      "Url": "https://aucpl.com/problem/hexapawn",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Hitting Books": {
+      "Url": "https://aucpl.com/problem/hittingbooks",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Holey Moley": {
+      "Url": "https://aucpl.com/problem/holeymoley",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "I Feel So Sigma": {
+      "Url": "https://aucpl.com/problem/ifeelsosigma",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "In The Clouds": {
+      "Url": "https://aucpl.com/problem/intheclouds",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Invalid Crashout": {
+      "Url": "https://aucpl.com/problem/invalidcrashout",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "It Roars": {
+      "Url": "https://aucpl.com/problem/itroars",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Jump Man": {
+      "Url": "https://aucpl.com/problem/jumpman",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Jump Rope": {
+      "Url": "https://aucpl.com/problem/jumprope",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Karaoke": {
+      "Url": "https://aucpl.com/problem/karaoke",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Larceny Loops": {
+      "Url": "https://aucpl.com/problem/larcenyloops",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Last Digit Dominance": {
+      "Url": "https://aucpl.com/problem/lastdigitdominance",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Layer Lovers": {
+      "Url": "https://aucpl.com/problem/layerlovers",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Lazy Irrigation": {
+      "Url": "https://aucpl.com/problem/lazyirrigation",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Lets Do This Thing I": {
+      "Url": "https://aucpl.com/problem/letsdothisthingi",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Lets Do This Thing II": {
+      "Url": "https://aucpl.com/problem/letsdothisthingii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Lotto Losers": {
+      "Url": "https://aucpl.com/problem/lottolosers",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Magical I": {
+      "Url": "https://aucpl.com/problem/magicali",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Magical II": {
+      "Url": "https://aucpl.com/problem/magicalii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Mastermind": {
+      "Url": "https://aucpl.com/problem/mastermind",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Meet The Plastics I": {
+      "Url": "https://aucpl.com/problem/meettheplasticsi",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Meet The Plastics II": {
+      "Url": "https://aucpl.com/problem/meettheplasticsii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Messy Kevin": {
+      "Url": "https://aucpl.com/problem/messykevin",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Messy Kevin II": {
+      "Url": "https://aucpl.com/problem/messykevinii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Messy Kevin III": {
+      "Url": "https://aucpl.com/problem/messykeviniii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Messy Kevin IV": {
+      "Url": "https://aucpl.com/problem/messykeviniv",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Messy Kevin V": {
+      "Url": "https://aucpl.com/problem/messykevinv",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Meteor Shower": {
+      "Url": "https://aucpl.com/problem/meteorshower",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Mexing it Up": {
+      "Url": "https://aucpl.com/problem/mexingitup",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Minesweeper I": {
+      "Url": "https://aucpl.com/problem/minesweeperi",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Minesweeper II": {
+      "Url": "https://aucpl.com/problem/minesweeperii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Moo Phases": {
+      "Url": "https://aucpl.com/problem/moophases",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Neighbourly Plans I": {
+      "Url": "https://aucpl.com/problem/neighbourlyplansi",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Neighbourly Plans II": {
+      "Url": "https://aucpl.com/problem/neighbourlyplansii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Odds On": {
+      "Url": "https://aucpl.com/problem/oddson",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "OneArm Bandit": {
+      "Url": "https://aucpl.com/problem/onearmbandit",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Orchard Optimiser": {
+      "Url": "https://aucpl.com/problem/orchardoptimiser",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Orees Candies": {
+      "Url": "https://aucpl.com/problem/oreescandies",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Orees White Van": {
+      "Url": "https://aucpl.com/problem/oreeswhitevan",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Penultimate Processing": {
+      "Url": "https://aucpl.com/problem/penultimateprocessin",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Piping Up": {
+      "Url": "https://aucpl.com/problem/pipingup",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Pizza Patrol": {
+      "Url": "https://aucpl.com/problem/pizzapatrol",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Pizza Police": {
+      "Url": "https://aucpl.com/problem/pizzapolice",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Plotting for Good": {
+      "Url": "https://aucpl.com/problem/plottingforgood",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Poker Face": {
+      "Url": "https://aucpl.com/problem/pokerface",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Porker Champions": {
+      "Url": "https://aucpl.com/problem/porkerchampions",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Powerful Literature": {
+      "Url": "https://aucpl.com/problem/powerfuliterature",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Precious Pepsi": {
+      "Url": "https://aucpl.com/problem/preciouspepsi",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Predecimal Currency": {
+      "Url": "https://aucpl.com/problem/predecimalcurrency",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Prehistoric Printing": {
+      "Url": "https://aucpl.com/problem/prehistoricprinting",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Print Panic": {
+      "Url": "https://aucpl.com/problem/printpanic",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Prosperous Pairings": {
+      "Url": "https://aucpl.com/problem/prosperouspairings",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Revenge Party": {
+      "Url": "https://aucpl.com/problem/revengeparty",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Reverse Engineering": {
+      "Url": "https://aucpl.com/problem/reverseengineering",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Roll Call": {
+      "Url": "https://aucpl.com/problem/rollcall",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Rule of Five": {
+      "Url": "https://aucpl.com/problem/ruleoffive",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Run It Back Rundle": {
+      "Url": "https://aucpl.com/problem/runitbackrundle",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Semantic Separator": {
+      "Url": "https://aucpl.com/problem/sematicseparator",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Seven Segments": {
+      "Url": "https://aucpl.com/problem/sevensegments",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Snake Game": {
+      "Url": "https://aucpl.com/problem/snakegame",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Someone Gets Hurt": {
+      "Url": "https://aucpl.com/problem/someonegetshurt",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Spotting In Sequence": {
+      "Url": "https://aucpl.com/problem/spottinginsequence",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Spotting In Sequence II": {
+      "Url": "https://aucpl.com/problem/spottinginsequenceii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Stack It I": {
+      "Url": "https://aucpl.com/problem/stackiti",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Stack It II": {
+      "Url": "https://aucpl.com/problem/stackitii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Strange Matter I": {
+      "Url": "https://aucpl.com/problem/strangematteri",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Strange Matter II": {
+      "Url": "https://aucpl.com/problem/strangematterii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Stupid with Love": {
+      "Url": "https://aucpl.com/problem/stupidwithlove",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Supernova": {
+      "Url": "https://aucpl.com/problem/supernova",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Surf the Barossa": {
+      "Url": "https://aucpl.com/problem/surfthebarossa",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Sushi Sheriff": {
+      "Url": "https://aucpl.com/problem/sushisheriff",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Team GCD": {
+      "Url": "https://aucpl.com/problem/teamgcd",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "The Malls Balls Balls": {
+      "Url": "https://aucpl.com/problem/themallsballsballs",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "The Merger": {
+      "Url": "https://aucpl.com/problem/themerger",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "The Voting Party": {
+      "Url": "https://aucpl.com/problem/thevotingparty",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "The World": {
+      "Url": "https://aucpl.com/problem/theworld",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Tower of Books": {
+      "Url": "https://aucpl.com/problem/towerofbooks",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Tower of Tablets": {
+      "Url": "https://aucpl.com/problem/toweroftablets",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Tower of Toms": {
+      "Url": "https://aucpl.com/problem/toweroftoms",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Tung Tung Sahur": {
+      "Url": "https://aucpl.com/problem/tungtungsahur",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Typical": {
+      "Url": "https://aucpl.com/problem/typical",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Ultimate Jump Game": {
+      "Url": "https://aucpl.com/problem/ultimatejumpgame",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Unneighbourly Plans": {
+      "Url": "https://aucpl.com/problem/unneighbourlyplans",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    },
+    "Uno Royale": {
+      "Url": "https://aucpl.com/problem/unoroyale",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "We Come in Peace I": {
+      "Url": "https://aucpl.com/problem/wecomeinpeacei",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "We Come in Peace II": {
+      "Url": "https://aucpl.com/problem/wecomeinpeaceii",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Weed Whacking": {
+      "Url": "https://aucpl.com/problem/weedwhacking",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "WellOiled Machine": {
+      "Url": "https://aucpl.com/problem/welloiledmachine",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Where Do You Belong": {
+      "Url": "https://aucpl.com/problem/wheredoyoubelong",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionA"
+    },
+    "Wormhole Walkway": {
+      "Url": "https://aucpl.com/problem/wormholewalkway",
+      "Origin": "AUCPL",
+      "Difficulty": "DivisionB"
+    }
+  },
+  "byDifficulty": {
+    "DivisionB": [
+      "Agar Adventure",
+      "Algorithm Performance I",
+      "Algorithm Performance II",
+      "Anagram Analyser",
+      "Binary Bros",
+      "Calcunanigans",
+      "Cappuccino Assassino",
+      "Defense of the Eternal Runes",
+      "Dynamic Drinking",
+      "Dystopian I",
+      "Dystopian II",
+      "Dystopian III",
+      "Easy Peasy Arithmetic",
+      "Friends with the Monster",
+      "Hello Adelaide",
+      "Jump Rope",
+      "Last Digit Dominance",
+      "Layer Lovers",
+      "Lotto Losers",
+      "Magical I",
+      "Magical II",
+      "Messy Kevin",
+      "Messy Kevin II",
+      "Messy Kevin III",
+      "Messy Kevin IV",
+      "Messy Kevin V",
+      "Orees Candies",
+      "Orees White Van",
+      "Penultimate Processing",
+      "Pizza Patrol",
+      "Precious Pepsi",
+      "Prehistoric Printing",
+      "Print Panic",
+      "Prosperous Pairings",
+      "Roll Call",
+      "Spotting In Sequence",
+      "Spotting In Sequence II",
+      "Sushi Sheriff",
+      "Tower of Books",
+      "Tung Tung Sahur",
+      "Unneighbourly Plans",
+      "Wormhole Walkway"
+    ],
+    "DivisionA": [
+      "Artificial Intelligence",
+      "Animal Farm",
+      "Assault and Battery I",
+      "Assault and Battery II",
+      "AUCPL Intro",
+      "Bake a Cake",
+      "Baked Goods",
+      "Better Call Paul",
+      "Blastoff",
+      "Bullshit Branding",
+      "Chexapawn",
+      "Chicken Run",
+      "Chips Out",
+      "Counting Stars",
+      "Cow Conundrum",
+      "Crop Network",
+      "Currency Exchange",
+      "Dreaming of Shapes",
+      "End of the Line",
+      "Faro Shuffle",
+      "Feeding Frenzy",
+      "Footy Fanatics",
+      "Formidable",
+      "Fringe Benefits I",
+      "Fringe Benefits II",
+      "Garbage Collection",
+      "Grid City",
+      "Hexapawn",
+      "Hitting Books",
+      "Holey Moley",
+      "I Feel So Sigma",
+      "In The Clouds",
+      "Invalid Crashout",
+      "It Roars",
+      "Jump Man",
+      "Karaoke",
+      "Larceny Loops",
+      "Lazy Irrigation",
+      "Lets Do This Thing I",
+      "Lets Do This Thing II",
+      "Mastermind",
+      "Meet The Plastics I",
+      "Meet The Plastics II",
+      "Meteor Shower",
+      "Mexing it Up",
+      "Minesweeper I",
+      "Minesweeper II",
+      "Moo Phases",
+      "Neighbourly Plans I",
+      "Neighbourly Plans II",
+      "Odds On",
+      "OneArm Bandit",
+      "Orchard Optimiser",
+      "Piping Up",
+      "Pizza Police",
+      "Plotting for Good",
+      "Poker Face",
+      "Porker Champions",
+      "Powerful Literature",
+      "Predecimal Currency",
+      "Revenge Party",
+      "Reverse Engineering",
+      "Rule of Five",
+      "Run It Back Rundle",
+      "Semantic Separator",
+      "Seven Segments",
+      "Snake Game",
+      "Someone Gets Hurt",
+      "Stack It I",
+      "Stack It II",
+      "Strange Matter I",
+      "Strange Matter II",
+      "Stupid with Love",
+      "Supernova",
+      "Surf the Barossa",
+      "Team GCD",
+      "The Malls Balls Balls",
+      "The Merger",
+      "The Voting Party",
+      "The World",
+      "Tower of Tablets",
+      "Tower of Toms",
+      "Typical",
+      "Ultimate Jump Game",
+      "Uno Royale",
+      "We Come in Peace I",
+      "We Come in Peace II",
+      "Weed Whacking",
+      "WellOiled Machine",
+      "Where Do You Belong"
+    ]
+  },
+  "byOrigin": {
+    "AUCPL": [
+      "Agar Adventure",
+      "Artificial Intelligence",
+      "Algorithm Performance I",
+      "Algorithm Performance II",
+      "Anagram Analyser",
+      "Animal Farm",
+      "Assault and Battery I",
+      "Assault and Battery II",
+      "AUCPL Intro",
+      "Bake a Cake",
+      "Baked Goods",
+      "Better Call Paul",
+      "Binary Bros",
+      "Blastoff",
+      "Bullshit Branding",
+      "Calcunanigans",
+      "Cappuccino Assassino",
+      "Chexapawn",
+      "Chicken Run",
+      "Chips Out",
+      "Counting Stars",
+      "Cow Conundrum",
+      "Crop Network",
+      "Currency Exchange",
+      "Defense of the Eternal Runes",
+      "Dreaming of Shapes",
+      "Dynamic Drinking",
+      "Dystopian I",
+      "Dystopian II",
+      "Dystopian III",
+      "Easy Peasy Arithmetic",
+      "End of the Line",
+      "Faro Shuffle",
+      "Feeding Frenzy",
+      "Footy Fanatics",
+      "Formidable",
+      "Friends with the Monster",
+      "Fringe Benefits I",
+      "Fringe Benefits II",
+      "Garbage Collection",
+      "Grid City",
+      "Hello Adelaide",
+      "Hexapawn",
+      "Hitting Books",
+      "Holey Moley",
+      "I Feel So Sigma",
+      "In The Clouds",
+      "Invalid Crashout",
+      "It Roars",
+      "Jump Man",
+      "Jump Rope",
+      "Karaoke",
+      "Larceny Loops",
+      "Last Digit Dominance",
+      "Layer Lovers",
+      "Lazy Irrigation",
+      "Lets Do This Thing I",
+      "Lets Do This Thing II",
+      "Lotto Losers",
+      "Magical I",
+      "Magical II",
+      "Mastermind",
+      "Meet The Plastics I",
+      "Meet The Plastics II",
+      "Messy Kevin",
+      "Messy Kevin II",
+      "Messy Kevin III",
+      "Messy Kevin IV",
+      "Messy Kevin V",
+      "Meteor Shower",
+      "Mexing it Up",
+      "Minesweeper I",
+      "Minesweeper II",
+      "Moo Phases",
+      "Neighbourly Plans I",
+      "Neighbourly Plans II",
+      "Odds On",
+      "OneArm Bandit",
+      "Orchard Optimiser",
+      "Orees Candies",
+      "Orees White Van",
+      "Penultimate Processing",
+      "Piping Up",
+      "Pizza Patrol",
+      "Pizza Police",
+      "Plotting for Good",
+      "Poker Face",
+      "Porker Champions",
+      "Powerful Literature",
+      "Precious Pepsi",
+      "Predecimal Currency",
+      "Prehistoric Printing",
+      "Print Panic",
+      "Prosperous Pairings",
+      "Revenge Party",
+      "Reverse Engineering",
+      "Roll Call",
+      "Rule of Five",
+      "Run It Back Rundle",
+      "Semantic Separator",
+      "Seven Segments",
+      "Snake Game",
+      "Someone Gets Hurt",
+      "Spotting In Sequence",
+      "Spotting In Sequence II",
+      "Stack It I",
+      "Stack It II",
+      "Strange Matter I",
+      "Strange Matter II",
+      "Stupid with Love",
+      "Supernova",
+      "Surf the Barossa",
+      "Sushi Sheriff",
+      "Team GCD",
+      "The Malls Balls Balls",
+      "The Merger",
+      "The Voting Party",
+      "The World",
+      "Tower of Books",
+      "Tower of Tablets",
+      "Tower of Toms",
+      "Tung Tung Sahur",
+      "Typical",
+      "Ultimate Jump Game",
+      "Unneighbourly Plans",
+      "Uno Royale",
+      "We Come in Peace I",
+      "We Come in Peace II",
+      "Weed Whacking",
+      "WellOiled Machine",
+      "Where Do You Belong",
+      "Wormhole Walkway"
+    ]
+  },
+  "lastUpdated": "2025-09-27T02:00:06.753431",
+  "totalQuestions": 132
+}

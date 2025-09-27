@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Room Chat</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #f0f2f5;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        background-color: #4a90e2;
+        color: white;
+        padding: 10px 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 100%;
+      }
+
+      #chat-container {
+        flex: 1; /* Take remaining space after the header */
+        max-width: 800px;
+        margin: 30px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+      }
+
+      #chat {
+        list-style-type: none;
+        padding-left: 0;
+        margin-top: 20px;
+        overflow-y: auto;
+        flex-grow: 1; /* Makes chat grow and take available space */
+      }
+
+      #chat li {
+        margin-bottom: 12px;
+        padding: 10px;
+        border-radius: 6px;
+      }
+
+      #chat li:nth-child(odd) {
+        background-color: #f9f9f9;
+      }
+
+      #chat li:nth-child(even) {
+        background-color: #eef3fb;
+      }
+
+      .system-message {
+        font-style: italic;
+        color: #999;
+      }
+
+      #room-info {
+        margin-top: 0;
+        font-weight: bold;
+      }
+
+      .controls {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .controls input {
+        flex: 1;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+
+      .controls button {
+        background-color: #4a90e2;
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .controls button:hover {
+        background-color: #357ac9;
+      }
+
+      .leave-button {
+        background-color: #e74c3c;
+      }
+
+      .leave-button:hover {
+        background-color: #c0392b;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2 id="room-title">Room Chat</h2>
+      <p id="user-count"></p>
+    </header>
+
+    <div id="chat-container">
+      <div>
+        <p id="room-info"></p>
+        <ul id="chat"></ul>
+      </div>
+    </div>
+
+    <script>
+      const roomId = window.location.pathname.split("/").pop();
+
+      document.getElementById("room-info").innerText = "Room ID: " + roomId;
+
+      const socket = new WebSocket(
+        location.origin.replace(/^http/, "ws") + `/ws/${roomId}`,
+      );
+      const chatList = document.getElementById("chat");
+      const userCountDisplay = document.getElementById("user-count");
+
+      // Client-side user count, starts with 1 (you)
+      let userCount = 1;
+
+      socket.onopen = () => {
+        console.log("WebSocket connected.");
+        socket.send(
+          JSON.stringify({
+            type: "join",
+            roomId,
+          }),
+        );
+      };
+
+      socket.onmessage = (event) => {
+        console.log("Received WebSocket data:", event.data);
+        const data = JSON.parse(event.data);
+        const li = document.createElement("li");
+
+        if (data.type === "system") {
+          li.textContent = "[System]: " + data.message;
+          li.classList.add("system-message");
+
+          // Check for join/exit messages and update count accordingly
+          if (data.message.includes("Joined the room")) {
+            userCount++;
+          } else if (data.message.includes("Left the room")) {
+            userCount = Math.max(1, userCount - 1); // Prevent count from going below 1
+          }
+        } else if (data.type === "message") {
+          li.textContent = (data.name || "User") + ": " + data.text;
+        }
+
+        chatList.appendChild(li);
+        li.scrollIntoView({ behavior: "smooth" });
+      };
+
+      // Optional: handle window/tab close to notify exit - requires server support
+      window.addEventListener("beforeunload", () => {
+        if (socket.readyState === WebSocket.OPEN) {
+          socket.send(
+            JSON.stringify({
+              type: "exit",
+              roomId,
+            }),
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

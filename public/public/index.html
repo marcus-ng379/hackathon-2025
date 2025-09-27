@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Join or Create a Room</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 350px;
+      }
+
+      h1 {
+        color: #4a90e2;
+        margin-bottom: 24px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+      }
+
+      button {
+        background-color: #4a90e2;
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 12px;
+      }
+
+      button:hover {
+        background-color: #357ac9;
+      }
+
+      .error {
+        color: red;
+        margin-top: 12px;
+      }
+
+      .settings {
+        text-align: left;
+        margin-top: 20px;
+      }
+
+      .settings label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+
+      .settings input {
+        margin-bottom: 16px;
+      }
+
+      hr {
+        margin: 24px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Join or Create a Room</h1>
+
+      <input id="usernameInput" type="text" placeholder="Enter your name" />
+      <input id="roomIdInput" type="text" placeholder="Enter Room ID to Join" />
+      <button onclick="joinRoom()">Join Room</button>
+
+      <hr />
+
+      <button onclick="toggleSettings()">Show/Hide Settings</button>
+
+      <div class="settings" id="settingsPanel" style="display: none">
+        <label for="Easy">Leetcode Easy:</label>
+        <input id="Easy" type="number" placeholder="0" min="0" />
+
+        <label for="Medium">Leetcode Medium:</label>
+        <input id="Medium" type="number" placeholder="0" min="0" />
+
+        <label for="Hard">Leetcode Hard:</label>
+        <input id="Hard" type="number" placeholder="0" min="0" />
+
+        <label for="AUCPL-1">AUCPL Level 1:</label>
+        <input id="Level 1" type="number" placeholder="0" min="0" />
+
+        <label for="AUCPL-2">AUCPL Level 2:</label>
+        <input id="Level 2" type="number" placeholder="0" min="0" />
+      </div>
+
+      <button onclick="createRoom()">Create Room</button>
+
+      <div class="error" id="errorMessage"></div>
+    </div>
+
+    <script>
+      function toggleSettings() {
+        const panel = document.getElementById("settingsPanel");
+        panel.style.display = panel.style.display === "none" ? "block" : "none";
+      }
+
+      async function joinRoom() {
+        const nameValue = document.getElementById("usernameInput").value.trim();
+        const roomId = document.getElementById("roomIdInput").value.trim();
+        const errorMessage = document.getElementById("errorMessage");
+
+        if (!nameValue || !roomId) {
+          errorMessage.textContent = "Please enter both name and Room ID.";
+          return;
+        }
+
+        try {
+          const response = await fetch("/joinRoom", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              payload: { nameValue, roomId },
+            }),
+          });
+
+          if (response.ok) {
+            sessionStorage.setItem("username", nameValue);
+            window.location.href = `/room/${roomId}`;
+          } else {
+            const result = await response.json();
+            errorMessage.textContent = result.error || "Failed to join room.";
+          }
+        } catch (err) {
+          console.error("Join error:", err);
+          errorMessage.textContent = "Server error. Please try again.";
+        }
+      }
+
+      async function createRoom() {
+        const nameValue = document.getElementById("usernameInput").value.trim();
+        const errorMessage = document.getElementById("errorMessage");
+
+        if (!nameValue) {
+          errorMessage.textContent =
+            "Please enter your name before creating a room.";
+          return;
+        }
+
+        // Build filters from input fields
+        const inputs = document.querySelectorAll("#settingsPanel input");
+        const filterDict = {};
+        inputs.forEach((input) => {
+          filterDict[input.id] = Number(input.value) || 0;
+        });
+
+        try {
+          const response = await fetch("/RoomIDGen", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              payload: {
+                nameValue,
+                filters: filterDict,
+              },
+            }),
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            sessionStorage.setItem("username", nameValue);
+            window.location.href = `/room/${data.roomId}`;
+          } else {
+            const result = await response.json();
+            errorMessage.textContent = result.error || "Failed to create room.";
+          }
+        } catch (err) {
+          console.error("Create room error:", err);
+          errorMessage.textContent = "Server error. Please try again.";
+        }
+      }
+    </script>
+  </body>
+</html>
