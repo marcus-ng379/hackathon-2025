@@ -34,7 +34,7 @@ function bindRoomButtons(page) {
                 questions = await fetch("https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/joinRoom", {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ value: temp, roomId: code })
+                    body: JSON.stringify({ nameValue: temp, roomId: code })
 
                 });
                 page.innerHTML = '';
@@ -82,7 +82,7 @@ async function bindFilterButtons(page) {
             try {
                 let temp = localStorage.getItem("name");
                 // Send filters to the server
-                const payload = { filters: filterDict, value: temp };
+                const payload = { filters: filterDict, nameValue: temp };
                 const response = await fetch('https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/RoomIDGen', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -164,7 +164,7 @@ function createChatBox(code) {
             messages.innerHTML = '';
         }
         var name = localStorage.getItem('name');
-        payload = { roomId: code, value: name }
+        payload = { roomId: code, nameValue: name }
         fetch("https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/exit", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
