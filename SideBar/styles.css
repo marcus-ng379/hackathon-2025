@@ -1,12 +1,30 @@
 body {
     background-color: rgb(36, 36, 36);
+    margin: 0;
+    font-family: "Arial";
+    font-size: 15px;
 }
 
 .button {
-    align-self: center;
-    border-radius: 15px;
-    border-color: black;
-    border: 3px;
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+}
+
+.input {
+    width: 100%;
+    padding: 8px 10px;
+    margin: 6px 0;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box;
 }
 
 #DivisionB {
@@ -53,4 +71,27 @@ h1 {
 
 input {
     align-self: center;
+}
+
+/* Chat input */
+#messages input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 80%;
+}
+
+#messages button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4a90e2;
+    color: white;
+    cursor: pointer;
+}
+
+#messages button:hover {
+    background-color: #357ABD;
 }

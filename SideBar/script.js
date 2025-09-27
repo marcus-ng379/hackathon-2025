@@ -25,9 +25,25 @@ function bindRoomButtons(page) {
     }
 
     if (enterCodeBtn) {
-        enterCodeBtn.addEventListener('click', () => {
+        enterCodeBtn.addEventListener('click', async () => {
             const code = document.getElementById('code').value;
             createChatBox(code);
+            var questions;
+            try {
+                let temp = localStorage.getItem('name');
+                const response = await fetch("https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/joinRoom", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ payload: { nameValue: temp, roomId: code } })
+
+                });
+                page.innerHTML = '';
+                questions = await response.json();
+            } catch (err) {
+                alert("FAILURE FAILURE CHCIKEN MAIL");
+            }
+            getQuestionInfo(page, questions);
+            getRoomIdAndRedirect(code);
 
         });
     }
@@ -62,19 +78,25 @@ async function bindFilterButtons(page) {
                     filterDict[input.id] = Number(input.value) || 0;
                 }
             });
+            var room;
             try {
+                let temp = localStorage.getItem("name");
                 // Send filters to the server
-                const response = await fetch('https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/filter', {
+                const payload = { filters: filterDict, nameValue: temp };
+                const response = await fetch('https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/RoomIDGen', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ filters: filterDict })
+                    body: JSON.stringify({
+                        payload
+                    })
                 });
                 var filteredQuestions = {};
                 if (!response.ok) {
                     throw new Error(`Server responded with status ${response.status}`);
                 }
-
-                filteredQuestions = await response.json();
+                const storage = await response.json();
+                filteredQuestions = storage.filter;
+                room = storage.roomId;
                 page.innerHTML = '';
 
             } catch (err) {
@@ -82,7 +104,7 @@ async function bindFilterButtons(page) {
                 page.innerHTML = `<p style="color:red;">Failed to fetch filtered questions</p>`;
             }
             getQuestionInfo(page, filteredQuestions);
-            getRoomIdAndRedirect();
+            getRoomIdAndRedirect(room);
         });
     }
 
@@ -116,7 +138,7 @@ function createChatBox(code) {
 
     const btn = document.createElement("button");
     btn.id = "messageBtn";
-    btn.textContent = "Hello";
+    btn.textContent = "Send Message";
     // append to the container  
     inputContainer.appendChild(input);
     inputContainer.appendChild(btn);
@@ -130,6 +152,28 @@ function createChatBox(code) {
     messageBtn.addEventListener('click', () => {
         sendMessages(message.value);
     });
+    const exitBtn = document.createElement("button");
+    exitBtn.id = "exitChatBtn";
+    inputContainer.appendChild(exitBtn);
+    const page = document.getElementById('page');
+    exitBtn.textContent = "Exit Chat";
+    exitBtn.addEventListener('click', () => {
+        bindRoomButtons(page);
+        const messages = document.getElementById('messages');
+        if (messages) {
+            messages.innerHTML = '';
+        }
+        var name = localStorage.getItem('name');
+        payload = { roomId: code, nameValue: name }
+        fetch("https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/exit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ payload })
+        });
+
+
+    })
+
 }
 function showWebsite(url) {
     // Get the messages container
@@ -161,6 +205,8 @@ function showWebsite(url) {
 
     // Append flex container to messages div
     messages.appendChild(flexContainer);
+
+
 }
 
 function createProblemLink(page, problem) {
@@ -180,20 +226,8 @@ const Data = [
 ];
 
 
-function getRoomIdAndRedirect() {
-    fetch('https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/RoomIDGen'
-        , {
-            method: 'POST',
-            mode: "cors",
-            headers: { 'Content-Type': 'application/json' } // optional here
-        })
-        .then(res => res.json())
-        .then(data => {
-            const roomId = data.result;
-            createChatBox(roomId);
-
-        })
-        .catch(err => console.error('Error fetching room ID:', err));
+function getRoomIdAndRedirect(roomId) {
+    createChatBox(roomId);
 }
 
 
