@@ -4,9 +4,7 @@
     "version": "1.6",
     "permissions": [
         "sidePanel",
-        "tabs",
-        "activeTab",
-        "scripting"
+        "tabs"
     ],
     "host_permissions": [
         "https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/*",

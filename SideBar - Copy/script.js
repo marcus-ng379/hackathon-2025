@@ -244,7 +244,11 @@ function sendMessages(text) {
         .catch(err => console.log("Uh oh >:(", err))
 }
 
-
+chrome.runtime.onMessage.addListener((msg) => {
+    if (msg.type === "submission_detected") {
+        console.log("User submitted a solution!", msg.data);
+    }
+});
 
 /*const username = prompt("Enter Username");
 
