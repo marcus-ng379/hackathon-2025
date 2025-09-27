@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(36, 36, 36);
+    background-color: rgb(194, 40, 40);
     margin: 0;
     font-family: "Arial";
     font-size: 15px;
@@ -30,35 +30,35 @@ body {
 #DivisionB {
     border-radius: 10px;
     color: rgb(45, 156, 119);
-    background-color: rgb(34, 91, 91);
+    background-color: rgb(103, 215, 225);
 }
 
 #DivisionA {
     opacity: 0.7;
     border-radius: 10px;
     color: rgb(174, 86, 86);
-    background-color: rgb(98, 45, 45);
+    background-color: rgb(115, 73, 178);
 }
 
 #Medium {
     border-radius: 10px;
     opacity: 0.7;
     color: goldenrod;
-    background-color: orange;
+    background-color: rgb(233, 196, 106);
 }
 
 #Hard {
     border-radius: 10px;
     opacity: 0.7;
     color: rgb(110, 33, 19);
-    background-color: rgb(72, 8, 8);
+    background-color: rgb(231, 111, 81);
 }
 
 #Easy {
     border-radius: 10px;
     opacity: 0.7;
     color: rgb(116, 207, 115);
-    background-color: rgb(62, 85, 59);
+    background-color: rgb(43, 158, 106);
 }
 
 
