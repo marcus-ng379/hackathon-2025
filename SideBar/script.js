@@ -135,7 +135,7 @@ function createChatBox(code) {
 
     const btn = document.createElement("button");
     btn.id = "messageBtn";
-    btn.textContent = "Hello";
+    btn.textContent = "Send Message";
     // append to the container  
     inputContainer.appendChild(input);
     inputContainer.appendChild(btn);
@@ -160,8 +160,18 @@ function createChatBox(code) {
         if (messages) {
             messages.innerHTML = '';
         }
+        var name = localStorage.getItem('name');
+        payload = { roomId: code, name: name }
+        fetch("https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/exit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        });
 
-    });
+
+    })
+
+});
 
 }
 function showWebsite(url) {
