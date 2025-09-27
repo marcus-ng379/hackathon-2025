@@ -7,10 +7,6 @@ destination_path = "combined.json"
 with open("AllAUCPL.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
-# Load the destination JSON file
-with open(destination_path, "r", encoding="utf-8") as f:
-    data = json.load(f)
-
 # Load the input JSON file
 with open("leetcode_questions.json", "r", encoding="utf-8") as f:
     leetcode_data = json.load(f)
@@ -24,6 +20,8 @@ for element in leetcode_data:
     data["byName"][name] = {"Url": url, "Origin": "Leetcode", "Difficulty": difficulty}
     data["byDifficulty"].setdefault(difficulty, []).append(name)
     data["byOrigin"].setdefault("Leetcode", []).append(name)
+
+    
 
 # Save back to the JSON file
 with open(destination_path, "w", encoding="utf-8") as f:
