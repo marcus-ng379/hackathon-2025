@@ -31,10 +31,10 @@ function bindRoomButtons(page) {
             var questions;
             try {
                 let temp = localStorage.getItem('name');
-                questions = await fetch("https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/joinRoom", {
+                const response = await fetch("https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/joinRoom", {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ nameValue: temp, roomId: code })
+                    body: JSON.stringify({ payload: { nameValue: temp, roomId: code } })
 
                 });
                 page.innerHTML = '';
@@ -43,7 +43,7 @@ function bindRoomButtons(page) {
                 alert("FAILURE FAILURE CHCIKEN MAIL");
             }
             getQuestionInfo(page, questions);
-            getRoomIdAndRedirect();
+            getRoomIdAndRedirect(code);
 
         });
     }
@@ -168,7 +168,7 @@ function createChatBox(code) {
         fetch("https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/exit", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
+            body: JSON.stringify({ payload })
         });
 
 
