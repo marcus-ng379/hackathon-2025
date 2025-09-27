@@ -18,9 +18,6 @@
     "icons": {
         "48": "men.jpeg"
     },
-    "side_panel": {
-        "default_path": "panel.html"
-    },
     "content_scripts": [
         {
             "matches": [

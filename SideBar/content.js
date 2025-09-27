@@ -1,6 +1,6 @@
 // Content script for the web extension
 // This script runs on pages matching the URL in manifest.json
-
+//DID NOT IMPLEMENT,
 console.log('Leet Leagues extension content script loaded');
 
 // You can add functionality here that interacts with the webpage
@@ -23,7 +23,7 @@ function addExtensionIndicator() {
     `;
     indicator.textContent = 'Leet Leagues Active';
     document.body.appendChild(indicator);
-    
+
     // Remove indicator after 3 seconds
     setTimeout(() => {
         indicator.remove();
@@ -40,7 +40,7 @@ if (document.readyState === 'loading') {
 // Listen for messages from the side panel
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     console.log('Content script received message:', request);
-    
+
     // Handle different message types
     switch (request.action) {
         case 'ping':
