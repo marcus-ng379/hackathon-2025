@@ -171,8 +171,6 @@ function createChatBox(code) {
 
     })
 
-});
-
 }
 function showWebsite(url) {
     // Get the messages container
