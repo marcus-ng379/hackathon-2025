@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "manifest_version": 3,
   "name": "Online",
   "version": "1.6",
@@ -26,6 +27,40 @@
       "matches": ["https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/*"],
       "css": ["styles.css"],
       "js": ["content.js"]
+=======
+    "manifest_version": 3,
+    "name": "Online",
+    "version": "1.6",
+    "permissions": [
+        "sidePanel",
+        "tabs",
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/*",
+        "https://leetcode.com/problems/*"
+    ],
+    "background": {
+        "service_worker": "main.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://leetcode.com/problems/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "action": {
+        "default_title": "Pleasework"
+    },
+    "icons": {
+        "48": "men.jpeg"
+>>>>>>> d22c55075cf145db6b6235ce481f383a0e087f93
     }
   ]
 }
