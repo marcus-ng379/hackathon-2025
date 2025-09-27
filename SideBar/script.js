@@ -31,10 +31,11 @@ function bindRoomButtons(page) {
             var questions;
             try {
                 let temp = localStorage.getItem('name');
+                const payload = { nameValue: temp, roomId: code }
                 const response = await fetch("https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/joinRoom", {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ payload: { nameValue: temp, roomId: code } })
+                    body: JSON.stringify({ payload })
 
                 });
                 page.innerHTML = '';
@@ -42,7 +43,7 @@ function bindRoomButtons(page) {
             } catch (err) {
                 alert("FAILURE FAILURE CHCIKEN MAIL");
             }
-            getQuestionInfo(page, questions);
+            getQuestionInfo(page, questions.filter);
             getRoomIdAndRedirect(code);
 
         });
