@@ -35,7 +35,10 @@ function bindRoomButtons(page) {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name: temp, roomId: code })
+
                 });
+                page.innerHTML = '';
+
             } catch (err) {
                 alert("FAILURE FAILURE CHCIKEN MAIL");
             }
