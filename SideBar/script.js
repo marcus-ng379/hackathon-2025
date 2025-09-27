@@ -34,7 +34,7 @@ function bindRoomButtons(page) {
                 questions = await fetch("https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/joinRoom", {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(temp)
+                    body: JSON.stringify({ name: temp, roomId: code })
                 });
             } catch (err) {
                 alert("FAILURE FAILURE CHCIKEN MAIL");
