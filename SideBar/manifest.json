@@ -1,21 +1,28 @@
 {
-    "manifest_version": 3,
-    "name": "Online",
-    "version": "1.6",
-    "permissions": [
-        "sidePanel",
-        "tabs"
-    ],
-    "host_permissions": [
-        "https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/*"
-    ],
-    "background": {
-        "service_worker": "main.js"
-    },
-    "action": {
-        "default_title": "Pleasework"
-    },
-    "icons": {
-        "48": "men.jpeg"
+  "manifest_version": 3,
+  "name": "Online",
+  "version": "1.6",
+  "permissions": [
+    "sidePanel",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/*"
+  ],
+  "background": {
+    "service_worker": "main.js"
+  },
+  "action": {
+    "default_title": "Pleasework"
+  },
+  "icons": {
+    "48": "men.jpeg"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://5e2b62bc-3c14-4aff-b3ed-a90fff910650-00-21sf5eeropuu7.riker.replit.dev/*"],
+      "css": ["styles.css"],
+      "js": ["content.js"]
     }
+  ]
 }
